@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <PolicyPak>
-              <CSE>
-                             <Updates>
-                                           <Enabled>True</Enabled>
-                                           <GenerateReports>True</GenerateReports>
-                                           <ReportsRoot>\\PDC\Share\Reports</ReportsRoot>
-                                           <CheckForUpdatesInterval>1000</CheckForUpdatesInterval>
-<Rings>
-              <Enabled>True</Enabled>
-              <Items>
-                                           <Ring>
-                                                          <HoursBeforeUpdate>2</HoursBeforeUpdate>
-                                                          <RandomOffset>20</RandomOffset>
-                                           <Computers>
-                                                          <Computer>Clean10.fabrikam.com</Computer>
-                                           </Computers>
-                                           </Ring>
-                                           <Ring>
-                                                          <HoursBeforeUpdate>48</HoursBeforeUpdate>
-                                                          <Computers>
-                                                                        <Computer>W20h2computer.fabrikam.com</Computer>
-                                                          </Computers>
-                                           </Ring>
-              </Items>
-              <RingCatchAll>
-                               <HoursBeforeUpdate>4</HoursBeforeUpdate>
-              </RingCatchAll>
-</Rings>
-</Updates>
+    <CSE>
+        <Updates>
+            <Enabled>True</Enabled>
+            <GenerateReports>True</GenerateReports>
+            <ReportsRoot>\\PDC\Share\Reports</ReportsRoot>
+            <CheckForUpdatesInterval>1000</CheckForUpdatesInterval>
+			<Rings>
+				<Enabled>True</Enabled>
+				<Items>
+					<Ring>
+						<HoursBeforeUpdate>2</HoursBeforeUpdate>
+						<RandomOffset>20</RandomOffset>
+						<Computers>
+							<Computer>Clean10.fabrikam.com</Computer>
+						</Computers>
+					</Ring>
+					<Ring>
+						<HoursBeforeUpdate>48</HoursBeforeUpdate>
+						<Computers>
+							<Computer>W20h2computer.fabrikam.com</Computer>
+						</Computers>
+					</Ring>
+				</Items>
+				<RingCatchAll>
+					<HoursBeforeUpdate>4</HoursBeforeUpdate>
+				</RingCatchAll>
+			</Rings>
+		</Updates>
     </CSE>
 </PolicyPak>

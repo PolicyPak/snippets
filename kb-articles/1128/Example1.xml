@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<PolicyPak>
+              <CSE>
+                             <Updates>
+                                           <Enabled>True</Enabled>
+                                           <GenerateReports>True</GenerateReports>
+                                           <ReportsRoot>\\PDC\Share\Reports</ReportsRoot>
+                                           <CheckForUpdatesInterval>1000</CheckForUpdatesInterval>
+<Rings>
+              <Enabled>True</Enabled>
+              <Items>
+                             <Ring>
+                                           <DateTime>2021-12-20 13:00:00</DateTime>
+                                           <RandomOffset>20</RandomOffset>
+                                <Computers>
+                                              <Computer>Clean10.fabrikam.com</Computer>
+                                </Computers>
+                             </Ring>
+              </Items>
+                             <RingCatchAll>
+                                           <DateTime>2021-12-21 14:00:00</DateTime>
+                                           <RandomOffset>60</RandomOffset>
+                             </RingCatchAll>
+</Rings>
+       </Updates>
+    </CSE>
+</PolicyPak>

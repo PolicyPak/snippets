@@ -11,7 +11,7 @@
 				<Items>
 					<Ring>
 						<HoursBeforeUpdate>2</HoursBeforeUpdate>
-						<RandomOffset>20</RandomOffset>
+						<RandomOffset>60</RandomOffset> <!-- : Number of minutes. This is an optional parameter and doesn't work by itself. -->
 						<Computers>
 							<Computer>Clean10.fabrikam.com</Computer>
 						</Computers>
@@ -24,7 +24,7 @@
 					</Ring>
 				</Items>
 				<RingCatchAll>
-					<HoursBeforeUpdate>4</HoursBeforeUpdate>
+					<HoursBeforeUpdate>72</HoursBeforeUpdate>
 				</RingCatchAll>
 			</Rings>
 		</Updates>

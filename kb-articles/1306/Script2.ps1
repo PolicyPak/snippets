@@ -1,0 +1,1 @@
+add-appxpackage "update_with_Path_to_your_file\MSTeams-x86.latest.msix"

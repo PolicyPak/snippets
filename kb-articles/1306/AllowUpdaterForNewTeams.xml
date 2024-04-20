@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policy xmlns:lpm="http://www.policypak.com/2016/LPM/CommonTypes" xmlns:ext="http://www.policypak.com/2019/LPM/PolicyEntryExtension" xmlns:security="http://www.policypak.com/2016/LPM/Security" xmlns:pd="http://www.policypak.com/2014/Policies/PolicyData" xmlns:pp="http://www.policypak.com/2014/CommonTypes" id="{b5298668-4c02-499e-a372-55af11272dd9}" productId="{58DE0268-6384-49E0-A333-20EC46654B82}" scope="machine" timestamp="1713541080" xmlns="http://www.policypak.com/2016/LPM/PolicyData">
+  <collection order="1" id="{bf2ecea2-fc5a-4455-9c2e-d6b477d63247}" displayName="Collection 2">
+    <entry order="0" scope="user" id="{675a2d7a-412b-459f-9907-dd7e84474167}" displayName="msiexec file Elevated with PATH rule">
+      <rule-v1>
+        <executableRule xmlns="http://www.policypak.com/2016/LPM/Rules-V1">
+          <conditions xmlns="http://www.policypak.com/2016/LPM/ExecutableRule">
+            <pathCondition xmlns="http://www.policypak.com/2016/LPM/Rules">
+              <path kind="File">*\msiexec.exe</path>
+            </pathCondition>
+            <commandLineCondition xmlns="http://www.policypak.com/2016/LPM/Rules">
+              <value>-embedding *</value>
+              <useAndSpecifierForArguments>false</useAndSpecifierForArguments>
+            </commandLineCondition>
+          </conditions>
+          <settings justificationTextRequired="false" restrictOpenSaveDialog="true" xmlns="http://www.policypak.com/2016/LPM/ExecutableRule">
+            <applyToChildProcesses>true</applyToChildProcesses>
+          </settings>
+          <action xmlns="http://www.policypak.com/2016/LPM/ExecutableRule">
+            <changeProcess xmlns="http://www.policypak.com/2016/LPM/Actions">
+              <security:changeToken baseToken="Elevated">
+                <security:groups />
+                <security:privileges />
+              </security:changeToken>
+            </changeProcess>
+          </action>
+        </executableRule>
+      </rule-v1>
+      <extensions>
+        <ext:policyEntryExtension>
+          <parentProcessFilter xmlns="http://www.policypak.com/2024/LPM/ParentProcessFilter">
+            <pathCondition xmlns="http://www.policypak.com/2016/LPM/Rules">
+              <path kind="File">*\msiexec.exe</path>
+            </pathCondition>
+            <signatureCondition xmlns="http://www.policypak.com/2016/LPM/Rules">
+              <commonName>CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US</commonName>
+            </signatureCondition>
+          </parentProcessFilter>
+        </ext:policyEntryExtension>
+      </extensions>
+    </entry>
+    <entry order="1" scope="user" id="{deeb6818-5492-407d-ad58-c918137fa3f1}" displayName="Any UWP app Allowed">
+      <rule-v5 xmlns="http://www.policypak.com/2016/LPM/Rules-V5">
+        <appXRule xmlns="http://www.policypak.com/2018/LPM/AppXRule">
+          <conditions>
+            <anyCondition />
+          </conditions>
+          <action>
+            <doNothing xmlns="http://www.policypak.com/2016/LPM/Actions" />
+          </action>
+        </appXRule>
+      </rule-v5>
+    </entry>
+    <entry order="0" scope="user" id="{9260ae1c-aa68-42c5-ab39-95a5e1405e3d}" displayName="Admin Approval policy">
+      <rule-v4 xmlns="http://www.policypak.com/2016/LPM/Rules-V4">
+        <adminApproval state="enabled" maxUsers="lessThan4000" xmlns="http://www.policypak.com/2017/LPM/AdminApproval">
+          <secretKey state="allow">
+            <key>vDfCAqaToYu3EL9p03MBSHYLJdPHe4CQG7mscXlU6ko85fEDdDIbECgYWhfpSXfB7caNJXpgTpRqC8cUzEiClw==</key>
+          </secretKey>
+          <permissions />
+          <advancedPermissions />
+          <forcedPromptSettings>
+            <installers>notConfigured</installers>
+          </forcedPromptSettings>
+          <miscSettings>
+            <customMessage state="notConfigured" />
+            <customDisplayName state="notConfigured" />
+          </miscSettings>
+        </adminApproval>
+      </rule-v4>
+    </entry>
+  </collection>
+</policy>

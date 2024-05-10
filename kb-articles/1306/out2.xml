@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policy xmlns:lpm="http://www.policypak.com/2016/LPM/CommonTypes" xmlns:ext="http://www.policypak.com/2019/LPM/PolicyEntryExtension" xmlns:security="http://www.policypak.com/2016/LPM/Security" xmlns:pd="http://www.policypak.com/2014/Policies/PolicyData" xmlns:pp="http://www.policypak.com/2014/CommonTypes" id="{09f0127a-df51-4d37-b2ea-154c6e5f40c1}" productId="{58DE0268-6384-49E0-A333-20EC46654B82}" scope="user" timestamp="1715279595" xmlns="http://www.policypak.com/2016/LPM/PolicyData">
+  <collection order="0" id="{71467e0a-b695-482a-aaa4-edbce9f92f44}" displayName="Collection 2">
+    <entry order="0" scope="user" id="{41df7bc5-fa24-40f0-ba80-733d6855f51d}" displayName="msiexec file Elevated with PATH rule">
+      <rule-v1>
+        <executableRule xmlns="http://www.policypak.com/2016/LPM/Rules-V1">
+          <conditions xmlns="http://www.policypak.com/2016/LPM/ExecutableRule">
+            <pathCondition xmlns="http://www.policypak.com/2016/LPM/Rules">
+              <path kind="File">*\msiexec.exe</path>
+            </pathCondition>
+            <commandLineCondition xmlns="http://www.policypak.com/2016/LPM/Rules">
+              <value>-embedding *</value>
+              <useAndSpecifierForArguments>false</useAndSpecifierForArguments>
+            </commandLineCondition>
+          </conditions>
+          <settings justificationTextRequired="false" restrictOpenSaveDialog="true" xmlns="http://www.policypak.com/2016/LPM/ExecutableRule">
+            <applyToChildProcesses>true</applyToChildProcesses>
+          </settings>
+          <action xmlns="http://www.policypak.com/2016/LPM/ExecutableRule">
+            <changeProcess xmlns="http://www.policypak.com/2016/LPM/Actions">
+              <security:changeToken baseToken="Elevated">
+                <security:groups />
+                <security:privileges />
+              </security:changeToken>
+            </changeProcess>
+          </action>
+        </executableRule>
+      </rule-v1>
+      <extensions>
+        <ext:policyEntryExtension>
+          <parentProcessFilter xmlns="http://www.policypak.com/2024/LPM/ParentProcessFilter">
+            <pathCondition xmlns="http://www.policypak.com/2016/LPM/Rules">
+              <path kind="File">*\msiexec.exe</path>
+            </pathCondition>
+            <signatureCondition xmlns="http://www.policypak.com/2016/LPM/Rules">
+              <commonName>CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US</commonName>
+            </signatureCondition>
+          </parentProcessFilter>
+        </ext:policyEntryExtension>
+      </extensions>
+    </entry>
+    <entry order="1" scope="user" id="{6e44cbb0-8e50-4f20-94a1-14e02320bc31}" displayName="Any UWP app Allowed">
+      <rule-v5 xmlns="http://www.policypak.com/2016/LPM/Rules-V5">
+        <appXRule xmlns="http://www.policypak.com/2018/LPM/AppXRule">
+          <conditions>
+            <anyCondition />
+          </conditions>
+          <action>
+            <doNothing xmlns="http://www.policypak.com/2016/LPM/Actions" />
+          </action>
+        </appXRule>
+      </rule-v5>
+    </entry>
+  </collection>
+</policy>
